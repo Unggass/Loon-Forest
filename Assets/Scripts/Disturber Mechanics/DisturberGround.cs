@@ -12,7 +12,8 @@ public class DisturberGround : MonoBehaviour
     [SerializeField] float strikeDistance = 3f;
     [Space(5)]
     [SerializeField] float scanDuration = 3f;
-    [SerializeField] float lockDuration = 3f;
+    [SerializeField] float minLockDuration = 1.5f;
+    [SerializeField] float maxLockDuration = 3f;
 
     [Space(20)]
     [SerializeField] CapsuleCollider2D bodyCollider;
@@ -61,7 +62,6 @@ public class DisturberGround : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             isStriking = false;
             Destroy(gameObject);
-            Debug.Log($"Destroy dipicu. travelDistance={travelDistance}, touchingWall={bodyCollider.IsTouchingLayers(LayerMask.GetMask("Wall"))}");
         }
         else
         {
@@ -73,8 +73,8 @@ public class DisturberGround : MonoBehaviour
     IEnumerator ScanningPlayer()
     {
         float timer = 0f;
+        float lockDuration = Random.Range(minLockDuration,maxLockDuration);
 
-        // Fase 1: terus tracking player selama scanDuration
         while (timer < scanDuration)
         {
             strikeDirection = Mathf.Sign(playerPos);
@@ -84,10 +84,8 @@ public class DisturberGround : MonoBehaviour
             yield return null;
         }
 
-        // Fase 2: posisi sudah dikunci (strikeDirection = nilai terakhir dari loop di atas)
         yield return new WaitForSeconds(lockDuration);
 
-        // Fase 3: mulai strike
         startPos = transform.position;
         isStriking = true;
     }

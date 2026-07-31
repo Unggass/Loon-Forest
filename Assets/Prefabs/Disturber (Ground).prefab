@@ -386,7 +386,8 @@ MonoBehaviour:
   strikeSpeed: 10
   strikeDistance: 10
   scanDuration: 2
-  lockDuration: 1
+  minLockDuration: 1
+  maxLockDuration: 1.5
   bodyCollider: {fileID: 8252133032910252043}
   hitBox: {fileID: 1458303585605781674}
   groundAnim: {fileID: 4715140283807713319}

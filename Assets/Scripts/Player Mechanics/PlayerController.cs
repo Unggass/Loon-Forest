@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDash(InputValue value)
     {
-        if(value.isPressed && canDash == true)
+        if(value.isPressed && canDash == true && !isDazed)
         {
             StartCoroutine(PlayerDash());
         }
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Arena"))) { return; }
+        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Arena")) || isDazed) { return; }
         if (value.isPressed)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if (value.isPressed && canAttack == true)
+        if (value.isPressed && canAttack == true &&  !isDazed)
         {
             StartCoroutine(PlayerAttack());
         }

@@ -66,15 +66,26 @@ public class DisturberSpawner : MonoBehaviour
 
         if (timer > spawnInterval)
         {
-            timer = 0f;
-            SpawnRandom();
+            // Randomize Condition Spawner
+            bool spawnBoth = Random.value < 0.3 ? true : false;
+
+            if (spawnBoth)
+            {
+                timer = 0f;
+                GroundSpawn(disturberPrefabs[0].prefab);
+                AirSpawn(disturberPrefabs[1].prefab);
+            }
+            else if (!spawnBoth) 
+            {
+                timer = 0f;
+                SpawnRandom();
+            }
         }
     }
 
     #region Spawner
     void SpawnRandom()
     {
-        // Buat Nilai random terhadap jumlah Prefab yang ada
         int index = Random.Range(0, disturberPrefabs.Count);
         // ambil index prefab
         DisturberEntry chosen = disturberPrefabs[index];
@@ -94,31 +105,24 @@ public class DisturberSpawner : MonoBehaviour
 
     void GroundSpawn(GameObject prefab)
     {
-        // Buat Nilai random untk jarak yang akan digunakan nanti
         float direction = Random.Range(groundMinDistance, groundMaxDistance);
         float sign = Random.value < 0.5 ? 1 : -1;
 
-        // Posisi player ditambahkan dengan jarak yang telah dihitung Sebelumnya
         float spawnX = player.position.x + (direction * sign);
-        // Lalu Clamp posisinya dengan Batasan Arena Arena
         spawnX = Mathf.Clamp(spawnX, arenaMinX, arenaMaxX);
 
-        // Instantiate Prefab
         Vector2 spawnPos = new Vector2(spawnX, groundSpawnY);
         Instantiate(prefab, spawnPos, Quaternion.identity);
     } 
 
     void AirSpawn(GameObject prefab)
     {
-        // buat nilai random dari Posisi SpawnX dan SpawnY
         float spawnX = Random.Range(airMinX, airMaxX);
         float spawnY = Random.Range(airMinY, airMaxY);
 
-        // Clamp jarak SpawnX dan SpawnX terhadap Batasan Arena
         spawnX = Mathf.Clamp(spawnX, arenaMinX, arenaMaxX);
         spawnY = Mathf.Clamp(spawnY, arenaMinY, arenaMaxY);
 
-        // Instantiate Prefab
         Vector2 spawnPos = new Vector2(spawnX, spawnY);
         Instantiate(prefab, spawnPos, Quaternion.identity);
     }

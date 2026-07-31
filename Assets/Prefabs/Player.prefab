@@ -237,10 +237,10 @@ MonoBehaviour:
   dashForce: 20
   dashDuration: 0.2
   dashCooldown: 1
-  attackTime: 0.5
+  attackTime: 0.35
   knockbackForce: 10
   upForce: 5
-  dazedDuration: 3
+  dazedDuration: 2
   ballonHitScore: 5
   DisturberhitScore: -10
   feetCollider: {fileID: 8578850182838295110}
