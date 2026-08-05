@@ -34,6 +34,12 @@ public class DisturberSpawner : MonoBehaviour
 
     [Space(10)]
 
+    [Header("Caster Spawn Settings")]
+    [SerializeField] Vector2 casterLeftSpawn;
+    [SerializeField] Vector2 casterRightSpawn;
+
+    [Space(10)]
+
     [Header ("Arena Boundary")]
     [SerializeField] float arenaMinX = 1f;
     [SerializeField] float arenaMaxX = 1f;
