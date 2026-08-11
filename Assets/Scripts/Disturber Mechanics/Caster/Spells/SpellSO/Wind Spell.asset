@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Wind Spell
   m_EditorClassIdentifier: Assembly-CSharp::WindSpell
   spellName: Wind Spell
+  reference: Wind
   activeDuration: 3
-  windForce: 0.03
+  windForce: 3
+  affectedLayer:
+    serializedVersion: 2
+    m_Bits: 8448
+  radius: 500

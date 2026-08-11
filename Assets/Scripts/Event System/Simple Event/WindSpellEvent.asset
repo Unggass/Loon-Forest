@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29784996a216ea4e96fb3e1d3ad7fb4, type: 3}
-  m_Name: Gravity Spell
-  m_EditorClassIdentifier: Assembly-CSharp::GravitySpell
-  spellName: Gravity Spell
-  reference: Gravity
-  activeDuration: 3
-  gravityStrength: 1
+  m_Script: {fileID: 11500000, guid: 9f19a64fe62c6174280ece36df8c4bd1, type: 3}
+  m_Name: WindSpellEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEvent

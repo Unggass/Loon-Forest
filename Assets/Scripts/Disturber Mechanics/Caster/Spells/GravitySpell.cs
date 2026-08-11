@@ -5,10 +5,9 @@ public class GravitySpell : Spell
 {
     public float gravityStrength = 0.3f;
 
-    public override void OnSpellCast()
+    public override void OnSpellCast(GameObject caster)
     {
-        // Gatau mau ngisi apa, Skip dulu
-        throw new System.NotImplementedException();
+        Debug.Log("Gatau ngisi apa");
     }
 
     public override void Activate(GameObject caster, GameObject target)

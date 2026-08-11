@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.ProjectAuditor.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CasterMechanic : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class CasterMechanic : MonoBehaviour
 
     CasterSpawner casterSpawn;
 
-    float time = 0;
+    float time;
 
     void Update()
     {
@@ -39,17 +40,32 @@ public class CasterMechanic : MonoBehaviour
         int index = Random.Range(0, spells.Length);
         Spell spell = spells[index];
 
-        spell.OnSpellCast();
+        spell.OnSpellCast(gameObject);
 
-        time = 0;
+        /*if(spell.reference == "Wind")
+        {
+            Debug.Log("Acivate Wind Spell");
 
-        do
+            time = 0f;
+            do
+            {
+                spell.Activate(gameObject, ballonTarget);
+
+                time += Time.deltaTime;
+                yield return null;
+            }
+            while (time < spell.activeDuration);
+        }
+        else
         {
             spell.Activate(gameObject, ballonTarget);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        while (time < spell.activeDuration);
+
+            yield return new WaitForSeconds(spell.activeDuration);
+        }*/
+
+        spell.Activate(gameObject, ballonTarget);
+
+        yield return new WaitForSeconds(spell.activeDuration);
 
         spell.Deactivate(gameObject, ballonTarget);
 

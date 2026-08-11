@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29784996a216ea4e96fb3e1d3ad7fb4, type: 3}
-  m_Name: Gravity Spell
-  m_EditorClassIdentifier: Assembly-CSharp::GravitySpell
-  spellName: Gravity Spell
-  reference: Gravity
-  activeDuration: 3
-  gravityStrength: 1
+  m_Script: {fileID: 11500000, guid: 0278e1773d2106343842e5aaa7c51040, type: 3}
+  m_Name: Teleport Spell
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportSpell
+  spellName: Teleportation Spell
+  reference: Teleport
+  activeDuration: 0.25
+  minPosX: 4
+  maxPosX: 6

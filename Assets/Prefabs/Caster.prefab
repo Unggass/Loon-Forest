@@ -138,5 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CasterMechanic
   spells:
   - {fileID: 11400000, guid: 4a936859990eab34b814cf5c05fcb3b9, type: 2}
+  - {fileID: 11400000, guid: 27c3373f9435d014081949f605cff66c, type: 2}
+  - {fileID: 11400000, guid: 9023f6e166b07a442b2b13f157e45ddf, type: 2}
   isCastingSpell: 0
   ballonTarget: {fileID: 0}
